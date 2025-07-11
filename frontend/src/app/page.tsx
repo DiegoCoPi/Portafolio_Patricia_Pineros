@@ -1,6 +1,27 @@
-import Image from "next/image";
+//import Image from "next/image";
 
-export default function Home() {
+export default function Init(){
+  return(
+    <>
+      
+      <div>
+        <h1>Bienvenidos a  mi sitio Web</h1>
+      </div>
+      
+      <br/>
+      
+      <div>
+        <p>
+          Mi nombre es Sandra Patricia Piñeros soy contadora de profesión con experiencia en declaración de renta para personas 
+          naturales en donde resto todo mis conocimiento y experienca a usted para hacer su declaración.
+        </p>
+      </div>
+
+    </>
+  )
+}
+
+/*export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
@@ -100,4 +121,4 @@ export default function Home() {
       </footer>
     </div>
   );
-}
+}*/
