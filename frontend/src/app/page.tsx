@@ -1,25 +1,23 @@
 //import Image from "next/image";
 
-export default function Init(){
-  return(
+//import Button from "@mui/material"
+import React from "react"
+import {Footer} from "../components/footer/footer"
+export default function Home(){
+  return (
     <>
-      
       <div>
-        <h1>Bienvenidos a  mi sitio Web</h1>
+        <h1>Bienvenidos a mi pagina web</h1>
       </div>
-      
       <br/>
-      
       <div>
-        <p>
-          Mi nombre es Sandra Patricia Piñeros soy contadora de profesión con experiencia en declaración de renta para personas 
-          naturales en donde resto todo mis conocimiento y experienca a usted para hacer su declaración.
-        </p>
+        <p>Soy Sandra Patricia Piñeros contadora de profesión</p>
       </div>
-
+      <Footer/>
     </>
   )
 }
+
 
 /*export default function Home() {
   return (
