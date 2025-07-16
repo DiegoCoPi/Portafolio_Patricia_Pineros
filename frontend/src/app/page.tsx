@@ -1,12 +1,9 @@
-//import Image from "next/image";
-
-//import Button from "@mui/material"
 import React from "react"
 import {Footer} from "../components/footer/footer"
 export default function Home(){
   return (
     <>
-      <div>
+      <div className="bg-background_img">
         <h1>Bienvenidos a mi pagina web</h1>
       </div>
       <br/>
