@@ -3,13 +3,19 @@ import {Footer} from "../components/footer/footer"
 export default function Home(){
   return (
     <>
-      <div className="bg-background_img">
+      <div className="text-center md:text-center text-6xl my-8 text-yellow-500" >
         <h1>Bienvenidos a mi pagina web</h1>
       </div>
       <br/>
-      <div>
-        <p>Soy Sandra Patricia Piñeros contadora de profesión</p>
+      <div className="text-2xl mx-12 text-gray-400 rounded-lg border-black bg-gray-300 bg-opacity-30 py-4 px-4 mx-12">
+        <p>
+          Me presento soy Sandra Patricia Piñeros soy contadora publica con amplia experiencia en la rama y en el día de hoy
+          dispongo de mi conocimiento en su declaración juridica como persona natural, para que no tenga inconveniente a la hora
+          de presentarla. Para ello dejo en disposiión información que le puede ser útil y el formulario para que lo diligencie y lo tenga
+          en cuanta para poder inciar con el proceso de su declaración de renta. ¡Mucho Gusto!. 
+        </p>
       </div>
+      <br/>
       <Footer/>
     </>
   )
