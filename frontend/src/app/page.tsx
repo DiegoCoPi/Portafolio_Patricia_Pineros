@@ -7,7 +7,7 @@ export default function Home(){
         <h1>Bienvenidos a mi pagina web</h1>
       </div>
       <br/>
-      <div className="text-2xl mx-12 text-gray-400 rounded-lg border-black bg-gray-300 bg-opacity-30 py-4 px-4 mx-12">
+      <div className="text-2xl mx-12 text-red-500 rounded-lg border-black bg-gray-300 bg-opacity-30 py-4 px-4 mx-12">
         <p>
           Me presento soy Sandra Patricia Piñeros soy contadora publica con amplia experiencia en la rama y en el día de hoy
           dispongo de mi conocimiento en su declaración juridica como persona natural, para que no tenga inconveniente a la hora
