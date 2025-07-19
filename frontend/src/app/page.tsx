@@ -1,23 +1,43 @@
-import React from "react"
+import Image from "next/image"
+import Link from "next/link"
 import {Footer} from "../components/footer/footer"
 export default function Home(){
   return (
-    <>
+    <div className="min-h-screen flex flex-col">
       <div className="text-center md:text-center text-6xl my-8 text-yellow-500" >
         <h1>Bienvenidos a mi pagina web</h1>
       </div>
       <br/>
       <div className="text-2xl mx-12 text-red-500 rounded-lg border-black bg-gray-300 bg-opacity-30 py-4 px-4 mx-12">
-        <p>
-          Me presento soy Sandra Patricia Piñeros soy contadora publica con amplia experiencia en la rama y en el día de hoy
-          dispongo de mi conocimiento en su declaración juridica como persona natural, para que no tenga inconveniente a la hora
-          de presentarla. Para ello dejo en disposiión información que le puede ser útil y el formulario para que lo diligencie y lo tenga
-          en cuanta para poder inciar con el proceso de su declaración de renta. ¡Mucho Gusto!. 
-        </p>
+          <p>
+            Me presento soy Sandra Patricia Piñeros soy contadora publica con amplia experiencia en la rama y en el día de hoy
+            dispongo de mi conocimiento en su declaración juridica como persona natural, para que no tenga inconveniente a la hora
+            de presentarla. Para ello dejo en disposiión información que le puede ser útil y el formulario para que lo diligencie y lo tenga
+            en cuanta para poder inciar con el proceso de su declaración de renta. ¡Mucho Gusto!. 
+          </p>
+      </div>
+      <br/>
+      <div className="text-2xl mx-12 text-red-500 rounded-lg border-black bg-gray-300 bg-opacity-30 py-4 px-4 mx-12">
+          <p>
+            No se preocupe, aqui le dejo el calendario, con los dos últimos digitos de su cedula cuidadana ese es el día que le corresponde 
+            a su declaración. Adcionalmente puede llenarel formulario para poder iniciar su proceso de declaración de renta.
+          </p>
+          <br/>
+          <div className="flex items-center gap-2 space-x-70">
+            <div className="flex items-center gap-2 ml-20">
+              <Image src="/PDF.svg" alt="PDF" height={100} width={100}/>
+              <h2>Calendario_Impuesto.pdf</h2>
+            </div>
+            <div className="bg-blue-900 mr-20">
+              <Link href="/">
+                <button className="text-white m-4">Diligencie el formulario</button>
+              </Link>
+            </div>  
+          </div>  
       </div>
       <br/>
       <Footer/>
-    </>
+    </div>
   )
 }
 
