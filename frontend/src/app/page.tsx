@@ -1,10 +1,13 @@
 import Image from "next/image"
 import Link from "next/link"
 import {Footer} from "../components/footer/footer"
+import {UserForm} from "../app/form/page"
+
+
 export default function Home(){
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="text-center md:text-center text-6xl my-8 text-yellow-500" >
+      <div className="text-center md:text-center text-6xl my-8 text-blue-900" >
         <h1>Bienvenidos a mi pagina web</h1>
       </div>
       <br/>
@@ -16,6 +19,7 @@ export default function Home(){
             en cuanta para poder inciar con el proceso de su declaración de renta. ¡Mucho Gusto!. 
           </p>
       </div>
+      <br/>
       <br/>
       <div className="text-2xl mx-12 text-red-500 rounded-lg border-black bg-gray-300 bg-opacity-30 py-4 px-4 mx-12">
           <p>
@@ -29,12 +33,14 @@ export default function Home(){
               <h2>Calendario_Impuesto.pdf</h2>
             </div>
             <div className="bg-blue-900 mr-20">
-              <Link href="/">
+              <Link href="/form">
                 <button className="text-white m-4">Diligencie el formulario</button>
               </Link>
             </div>  
           </div>  
       </div>
+      <br/>
+        <UserForm/>
       <br/>
       <Footer/>
     </div>
