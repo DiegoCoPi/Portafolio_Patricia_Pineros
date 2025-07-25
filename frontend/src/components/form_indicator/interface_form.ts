@@ -2,5 +2,7 @@
 export interface formInterface{
    name:string;
    lastname:string;
-   document_number: number;
+   phone:string;
+   email:string;
+   document_number: string;
 }
