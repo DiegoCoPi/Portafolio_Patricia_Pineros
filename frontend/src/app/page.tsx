@@ -11,7 +11,7 @@ export default function Home(){
         <h1>Bienvenidos a mi pagina web</h1>
       </div>
       <br/>
-      <div className="text-2xl mx-12 text-red-500 rounded-lg border-black bg-gray-300 bg-opacity-30 py-4 px-4 mx-12">
+      <div style={{backgroundColor: 'rgba(159, 152, 152, 0.7)'}} className="text-2xl mx-12 text-white rounded-lg border-2 border-black py-4 px-4 mx-12">
           <p>
             Me presento soy Sandra Patricia Piñeros soy contadora publica con amplia experiencia en la rama y en el día de hoy
             dispongo de mi conocimiento en su declaración juridica como persona natural, para que no tenga inconveniente a la hora
@@ -21,7 +21,7 @@ export default function Home(){
       </div>
       <br/>
       <br/>
-      <div className="text-2xl mx-12 text-red-500 rounded-lg border-black bg-gray-300 bg-opacity-30 py-4 px-4 mx-12">
+      <div style={{backgroundColor: 'rgba(159, 152, 152, 0.7)'}} className="text-2xl mx-12 text-white rounded-lg border-2 border-black py-4 px-4 mx-12">
           <p>
             No se preocupe, aqui le dejo el calendario, con los dos últimos digitos de su cedula cuidadana ese es el día que le corresponde 
             a su declaración. Adcionalmente puede llenarel formulario para poder iniciar su proceso de declaración de renta.

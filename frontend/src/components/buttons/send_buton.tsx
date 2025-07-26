@@ -1,10 +1,12 @@
 import Button from '@mui/material/Button'
-import {blue, grey,green} from '@mui/material/colors'
+import {green} from '@mui/material/colors'
 import {createTheme, ThemeProvider} from '@mui/material/styles'
 
 const theme = createTheme({
     palette:{
-        primary:blue,
+        primary:{
+            main:"#0d47a1"
+        },
         secondary: green,
     }
 })
@@ -12,7 +14,7 @@ const theme = createTheme({
 export default function Send_Button(){
     return (
         <ThemeProvider theme={theme}>
-            <Button color='secondary'>Enviar</Button>
+            <Button variant="contained" color='primary'>Enviar</Button>
         </ThemeProvider>
     )
 }
