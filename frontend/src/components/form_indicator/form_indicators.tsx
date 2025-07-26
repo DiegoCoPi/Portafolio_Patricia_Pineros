@@ -75,7 +75,9 @@ export const DecForm=()=>{
                     onChange={(e)=>{setFormData({...formData, document_number:e.target.value})}}
                 />
             </div>
-            <Send_Button/>
+            <div className="flex items-center justify-center">
+                <Send_Button/>
+            </div>
        </form>
     )
 }
