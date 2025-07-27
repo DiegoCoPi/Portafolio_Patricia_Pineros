@@ -13,8 +13,12 @@ module.exports={
     plugins: [
         function({addUtilities}){
             const newUtilities={
-                "text-stroke-blue",
-            }
+                "text-stroke-blue":{
+                    "-webtik-text-stroke": "2px white",
+                },
+            };
+
+            addUtilities(newUtilities["responsive"]);
         }
     ],
 }
