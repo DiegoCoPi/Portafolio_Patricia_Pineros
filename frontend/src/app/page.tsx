@@ -7,7 +7,7 @@ import {UserForm} from "../app/form/page"
 export default function Home(){
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="text-center md:text-center text-6xl my-8 text-blue-900" >
+      <div className="text-center md:text-center text-6xl my-8" >
         <h1>Bienvenidos a mi pagina web</h1>
       </div>
       <br/>

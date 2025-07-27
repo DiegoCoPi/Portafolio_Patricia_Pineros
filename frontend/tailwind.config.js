@@ -4,9 +4,21 @@ module.exports={
     "./components/**/*.{js,ts,jsx,tsx}",
     ],
     theme:{
-        fill:{
-            current:'currentColor'
+        extends: {
+            color:{
+                white:"#ffffff",
+            }
         }
     },
-    plugins: [],
+    plugins: [
+        function({addUtilities}){
+            const newUtilities={
+                "text-stroke-blue":{
+                    "-webtik-text-stroke": "2px white",
+                },
+            };
+
+            addUtilities(newUtilities["responsive"]);
+        }
+    ],
 }
