@@ -21,10 +21,13 @@ export default function Home(){
       <br/>
       <div style={{backgroundColor: 'rgba(159, 152, 152, 0.7)'}} className="text-2xl mx-12 text-white rounded-lg border-2 border-black py-4 px-4 mx-12">
           <p>
-           Aqui encuentra el formulario en el cual yo le puedo colaborar con su declaración de renta, para esto deberá ll
+           Aqui encuentra el formulario en el cual yo le puedo colaborar con su declaración de renta, para esto deberá llenar sus datos personales como nombre(s)
+           y apellidos(s) completos, telefono en donde pueda estar contacto con usted al igual correo electrónico suyo y encaso de no tenerlo se recomienda crear uno
+           o si tiene alguien de plena confianza puede dar el correo electrónico de esa persona y finalmente el numero de cedula <strong>se debe digitar solo los 
+           los números, es decir en el formulario no poner ni punto, comas o dejar espacio entre digitos</strong>
           </p>
           <br/>
-          <div className="flex items-center space-x-4">
+          <div className="flex space-x-4">
             <div className="flex flex-col items-center gap-6 ml-10">
               <Image src="/PDF.svg" alt="PDF" height={100} width={100}/>
               <h2>Calendario_Impuesto.pdf</h2>
