@@ -1,5 +1,4 @@
 import Image from "next/image"
-import Link from "next/link"
 import {Footer} from "../components/footer/footer"
 import {UserForm} from "../app/form/page"
 
@@ -13,34 +12,28 @@ export default function Home(){
       <br/>
       <div style={{backgroundColor: 'rgba(159, 152, 152, 0.7)'}} className="text-2xl mx-12 text-white rounded-lg border-2 border-black py-4 px-4 mx-12">
           <p>
-            Me presento soy Sandra Patricia Piñeros soy contadora publica con amplia experiencia en la rama y en el día de hoy
-            dispongo de mi conocimiento en su declaración juridica como persona natural, para que no tenga inconveniente a la hora
-            de presentarla. Para ello dejo en disposiión información que le puede ser útil y el formulario para que lo diligencie y lo tenga
-            en cuanta para poder inciar con el proceso de su declaración de renta. ¡Mucho Gusto!. 
+            Hola, soy Sandra Patricia Piñeros, contadora pública. Cuento con amplia experiencia en temas tributarios y quiero ayudarte a que tu declaración 
+            de renta como persona natural sea fácil y sin complicaciones.Aquí encontrarás información útil y el formulario que puedes diligenciar para iniciar 
+            tu proceso. ¡Será un gusto acompañarte! 
           </p>
       </div>
       <br/>
       <br/>
       <div style={{backgroundColor: 'rgba(159, 152, 152, 0.7)'}} className="text-2xl mx-12 text-white rounded-lg border-2 border-black py-4 px-4 mx-12">
           <p>
-            No se preocupe, aqui le dejo el calendario, con los dos últimos digitos de su cedula cuidadana ese es el día que le corresponde 
-            a su declaración. Adcionalmente puede llenarel formulario para poder iniciar su proceso de declaración de renta.
+           Aqui encuentra el formulario en el cual yo le puedo colaborar con su declaración de renta, para esto deberá ll
           </p>
           <br/>
-          <div className="flex items-center gap-2 space-x-70">
-            <div className="flex items-center gap-2 ml-20">
+          <div className="flex items-center space-x-4">
+            <div className="flex flex-col items-center gap-6 ml-10">
               <Image src="/PDF.svg" alt="PDF" height={100} width={100}/>
               <h2>Calendario_Impuesto.pdf</h2>
             </div>
-            <div className="bg-blue-900 mr-20">
-              <Link href="/form">
-                <button className="text-white m-4">Diligencie el formulario</button>
-              </Link>
+            <div>
+              <UserForm/>
             </div>  
           </div>  
-      </div>
-      <br/>
-        <UserForm/>
+      </div>      
       <br/>
       <Footer/>
     </div>
