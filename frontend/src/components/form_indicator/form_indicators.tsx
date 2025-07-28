@@ -18,9 +18,8 @@ export const DecForm=()=>{
 
     return (
        <form className="space-y-3" >
-        
             {/* Casilla de nombre(s)*/}
-           <div className="flex items-left gap-6">
+            <div className="flex items-left gap-6">
                 <h2>Nombre(s)</h2>
                 <input
                     type="text"
@@ -40,7 +39,7 @@ export const DecForm=()=>{
                     placeholder="Ingresa su(s) apellido(s)"
                     value={formData.lastname}
                     onChange={(e)=>{setFormData({...formData, lastname:e.target.value})}}
-                />
+                    />
             </div>
             {/* Casilla de telefono*/}
             <div className="flex item-left gap-9.5">
@@ -64,6 +63,7 @@ export const DecForm=()=>{
                 onChange={(e)=>setFormData({...formData, email:e.target.value})}
                 />
             </div>
+                
             {/* Casilla de numero de documento*/}
             <div className="flex items-left gap-11">
                 <h2>N° C.C.</h2>
