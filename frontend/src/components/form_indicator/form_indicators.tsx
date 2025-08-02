@@ -23,8 +23,8 @@ export const DecForm=()=>{
                 <h2>Nombre(s)</h2>
                 <input
                     type="text"
-                    className="bg-gray-200 w-50"
-                    placeholder="Ingresa sus(s) nombre(s)"
+                    className="bg-blue-600 w-50"
+                    placeholder="Ingrese nombre(s)"
                     value={formData.name}
                     onChange={(e)=>{setFormData({...formData, name:e.target.value})}}
                 />
@@ -35,29 +35,29 @@ export const DecForm=()=>{
                 <h2>Apellido(s)</h2>
                 <input
                     type="text"
-                    className="bg-gray-200 w-50"
-                    placeholder="Ingresa su(s) apellido(s)"
+                    className="bg-blue-600 w-50"
+                    placeholder="Ingrese apellido(s)"
                     value={formData.lastname}
                     onChange={(e)=>{setFormData({...formData, lastname:e.target.value})}}
                     />
             </div>
             {/* Casilla de telefono*/}
-            <div className="flex item-left gap-9.5">
+            <div className="flex item-left gap-11.5">
                 <h2>Telefóno</h2>
                 <input
                 type="number"
-                className="bg-gray-200 w-32"
-                placeholder="numero de telefóno"
+                className="bg-blue-600 w-50"
+                placeholder="numero telefonico"
                 value={formData.phone}
                 onChange={(e)=>setFormData({...formData, phone:e.target.value})}
                 />
             </div>
             {/* Casilla de correo electrónico*/}
-            <div className="flex item-left gap-8.5">
+            <div className="flex item-left gap-10.5">
                 <h2>Correo E</h2>
                 <input
                 type="string"
-                className="bg-gray-200 w-48"
+                className="bg-blue-600 w-50"
                 placeholder="tu_mail@mail.com"
                 value={formData.email}
                 onChange={(e)=>setFormData({...formData, email:e.target.value})}
@@ -65,12 +65,12 @@ export const DecForm=()=>{
             </div>
                 
             {/* Casilla de numero de documento*/}
-            <div className="flex items-left gap-11">
+            <div className="flex items-left gap-14">
                 <h2>N° C.C.</h2>
                 <input
                     type="number"
-                    className="bg-gray-200 w-32"
-                    placeholder="Ingrese el numero del documento sin puntos ni espacios"
+                    className="bg-blue-600 w-50"
+                    placeholder="1234567890"
                     value={formData.document_number}
                     onChange={(e)=>{setFormData({...formData, document_number:e.target.value})}}
                 />
