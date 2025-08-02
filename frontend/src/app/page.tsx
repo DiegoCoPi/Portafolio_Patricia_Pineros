@@ -27,12 +27,12 @@ export default function Home(){
            los números, es decir en el formulario no poner ni punto, comas o dejar espacio entre digitos</strong>
           </p>
           <br/>
-          <div className="flex space-x-4">
-            <div className="flex flex-col items-center gap-6 ml-10">
+          <div className="flex space-x-80">
+            <div className="flex flex-col items-center gap-6 ml-20">
               <Image src="/PDF.svg" alt="PDF" height={100} width={100}/>
               <h2>Calendario_Impuesto.pdf</h2>
             </div>
-            <div>
+            <div className="mr-20">
               <UserForm/>
             </div>  
           </div>  
