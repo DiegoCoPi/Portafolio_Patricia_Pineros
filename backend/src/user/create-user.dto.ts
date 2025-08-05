@@ -3,7 +3,7 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsInt, IsString, Min, Max, IsEmail, IsOptional } from "class-validator";
 
-export class createUserDto {
+export class CreateUserDto {
     
     //Nombre del declarante
     @ApiProperty({
