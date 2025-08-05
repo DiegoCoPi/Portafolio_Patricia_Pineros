@@ -6,14 +6,22 @@ export const dataBaseProvider = [{
     provide:'DATABASE_CONNECTION',
     useFactory:async(configService:ConfigService):Promise<typeof mongoose> =>{
         try{
-            const uri=configService.get<string>('URL_DATABASE | URL_DATABASE_2')
+            const uri=configService.get<string>('URL_DATABASE')
             if(uri){
                 const connect = await mongoose.connect(uri)
-                console.log("Base de datos Conectada exitosamente!")
+                console.log("Base de datos Conectada exitosamente con URI principal!")
                 return connect
             }
             else{
+                const uri_2=configService.get<string>('URL_DATABASE_2')
+                if(uri_2){ 
+                    const connect = await mongoose.connect(uri_2)
+                    console.log("Base de datos Conectada exitosamente con URI secundaria!")
+                    return connect
+                }
+                else{
                 throw new Error("Conexión BD indefinida")
+                }
             }
         }
         catch(error){
