@@ -8,7 +8,7 @@ import { UserController } from "./control/user.control";
 @Module({
     imports:[
         MongooseModule.forFeature([{
-            name:'User', 
+            name:'user', 
             schema:UserSchema,
          }])
     ],
