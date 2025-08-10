@@ -2,22 +2,43 @@
 import {useState}  from "react"
 import { formInterface } from "./interface_form"
 import Send_Button from "../buttons/send_buton"
-
+import {createUser} from "../api/user_api_service"
 
 export const DecForm=()=>{
     
     const[formData, setFormData]=useState<formInterface>({
+        _id:"",
         name: "",
         lastname:"",
         phone:"",
         email:"",
-        document_number:"",
+        comment:"",
     })
 
-    //Convert the string data to number
+    //Submit button function
+
+    const handleSubmit = async (e: React.FormEvent)=>{
+        e.preventDefault();
+        try{
+            await createUser(formData);
+            alert('¡Formularió enviado con éxito!')
+            setFormData({
+                _id:"",
+                name: "",
+                lastname:"",
+                phone:"",
+                email:"",
+                comment:"",
+            })
+        }
+        catch(error){
+            alert('Hubo un error al enviar el formulario.'+error)
+        }
+    }
+
 
     return (
-       <form className="space-y-3" >
+       <form className="space-y-3" onSubmit={handleSubmit}>
             {/* Casilla de nombre(s)*/}
             <div className="flex items-left gap-6">
                 <h2>Nombre(s)</h2>
@@ -71,8 +92,8 @@ export const DecForm=()=>{
                     type="number"
                     className="bg-blue-600 w-50"
                     placeholder="1234567890"
-                    value={formData.document_number}
-                    onChange={(e)=>{setFormData({...formData, document_number:e.target.value})}}
+                    value={formData._id}
+                    onChange={(e)=>{setFormData({...formData, _id:e.target.value})}}
                 />
             </div>
             <br/>
