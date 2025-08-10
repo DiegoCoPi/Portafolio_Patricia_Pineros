@@ -1,8 +1,9 @@
 
 export interface formInterface{
+   _id: string;
    name:string;
    lastname:string;
    phone:string;
    email:string;
-   document_number: string;
+   comment:string;
 }

@@ -14,7 +14,7 @@ const theme = createTheme({
 export default function Send_Button(){
     return (
         <ThemeProvider theme={theme}>
-            <Button variant="contained" color='primary'>Enviar</Button>
+            <Button type="submit" variant="contained" color='primary'>Enviar</Button>
         </ThemeProvider>
     )
 }

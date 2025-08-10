@@ -7,6 +7,7 @@ export const databaseProvider = [{
     useFactory:async(configService:ConfigService):Promise<typeof mongoose> =>{
         try{
             const uri="mongodb+srv://diegoalexandercopi:6pJLgc4gjRCCmAd2@clusterpatricia.zdoliti.mongodb.net/?retryWrites=true&w=majority&appName=ClusterPatricia"
+            //const uri = configService.get<string>("URL_DATABASE");
             console.log(uri)
             if(uri){
                 const connect = await mongoose.connect(uri)
