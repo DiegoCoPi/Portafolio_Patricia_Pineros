@@ -2,11 +2,12 @@
 import { ConfigService } from '@nestjs/config';
 import * as mongoose from 'mongoose'
 
-export const dataBaseProvider = [{
+export const databaseProvider = [{
     provide:'DATABASE_CONNECTION',
     useFactory:async(configService:ConfigService):Promise<typeof mongoose> =>{
         try{
-            const uri=configService.get<string>('URL_DATABASE')
+            const uri="mongodb+srv://diegoalexandercopi:6pJLgc4gjRCCmAd2@clusterpatricia.zdoliti.mongodb.net/?retryWrites=true&w=majority&appName=ClusterPatricia"
+            console.log(uri)
             if(uri){
                 const connect = await mongoose.connect(uri)
                 console.log("Base de datos Conectada exitosamente con URI principal!")

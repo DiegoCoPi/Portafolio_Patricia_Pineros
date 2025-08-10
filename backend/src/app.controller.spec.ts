@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Test, TestingModule } from '@nestjs/testing';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { AppController } from './user/controller/user.controller';
+import { AppService } from './user/service/user.service';
 
 describe('AppController', () => {
   let appController: AppController;
