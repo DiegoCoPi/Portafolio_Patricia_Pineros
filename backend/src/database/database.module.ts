@@ -1,9 +1,13 @@
 /* eslint-disable prettier/prettier */
 import {Module} from "@nestjs/common";
-import {dataBaseProvider} from "./database.providers";
+import { databaseProvider } from "./database.providers";
+import { ConfigModule } from "@nestjs/config";
+
 @Module({
-    providers:[...dataBaseProvider],
-    exports:[...dataBaseProvider],
+   imports:[ConfigModule],
+   providers:[...databaseProvider],
+   exports:[...databaseProvider]
 })
 
-export class DataBaseModule {}
+
+export class DatabaseModule{}

@@ -1,17 +1,18 @@
 /* eslint-disable prettier/prettier */
-import { Injectable, Inject } from "@nestjs/common";
-import { Model } from "mongoose";
-import {User} from "../interface/user.interface"
-import { CreateUserDto } from "../create-user.dto";
+import { Inject, Injectable } from '@nestjs/common';
+import { Model } from 'mongoose';
+import { User } from '../interface/user.interface';
+import { CreateUserDto } from '../dto/user.dto';
+//import { InjectModel } from '@nestjs/mongoose';
 
 @Injectable()
-export class UserService{
-    constructor(@Inject('User') private readonly userModel: Model<User>) { }
-    //Creador del Contribuyente
-    async create (createUserDto:CreateUserDto):Promise<User>{
-        const newUser = new this.userModel({...createUserDto})
-        try{return newUser.save()}
-        catch(error){throw new Error('Error al crear el usuario: '+error) }    
+export class UserService {
+    constructor(@Inject('USER_MODEL') private readonly userModel:  Model<User>) {}
+
+    //Crear Usuario
+    async create(createUserDto:CreateUserDto):Promise<User | undefined>{
+        const createuser = await this.userModel.create(createUserDto)
+        return createuser.save();
     }
 
 }
