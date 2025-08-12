@@ -1,9 +1,10 @@
 /* eslint-disable prettier/prettier */
-import { ConfigModule } from "@nestjs/config";
-import {databaseProvider} from "./database/database.providers";
+import { ConfigModule, ConfigService } from "@nestjs/config";
+//import {databaseProvider} from "./database/database.providers";
 //import * as path from 'path';
 import {Module} from '@nestjs/common'
 import { UserModule } from "./user/user.module";
+import { MongooseModule } from "@nestjs/mongoose";
 
 
 @Module({
@@ -12,10 +13,17 @@ import { UserModule } from "./user/user.module";
             isGlobal:true,
             envFilePath:'.env',
         }),
+        MongooseModule.forRootAsync({
+            imports:[ConfigModule],
+            useFactory:(configService:ConfigService)=>({
+                uri:configService.get<string>('URL_DATABASE'),
+            }),
+            inject:[ConfigService]
+        }),
         UserModule,
     ],
     controllers:[],
-    providers:[...databaseProvider],
+    providers:[],
 })
 
 export class AppModule {}
