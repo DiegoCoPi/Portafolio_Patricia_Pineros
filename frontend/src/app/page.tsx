@@ -29,8 +29,10 @@ export default function Home(){
           <br/>
           <div className="flex space-x-80">
             <div className="flex flex-col items-center gap-6 ml-20">
-              <Image src="/PDF.svg" alt="PDF" height={100} width={100}/>
-              <h2>Calendario_Impuesto.pdf</h2>
+              <a href="/pdf/Calendario_Impuesto.pdf" download="Calendario_Impuesto.pdf">
+                <Image src="/PDF.svg" alt="PDF" height={100} width={100}/>
+                <h2>Calendario_Impuesto.pdf</h2>
+              </a>
             </div>
             <div className="mr-20">
               <UserForm/>
