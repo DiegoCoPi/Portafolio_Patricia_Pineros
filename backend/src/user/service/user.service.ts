@@ -21,7 +21,7 @@ export class UserService {
             service: 'gmail',
             auth: {
                 user: this.configService.get<string>('EMAIL_DESTINATION'),
-                pass: this.configService.get<string>('PASS_DESTINATION'), // <-- Agrega la contraseña
+                pass: this.configService.get<string>('PASS_DESTINATION'), 
             },
         });
     }
@@ -45,9 +45,9 @@ export class UserService {
             to: user.email,
             subject: '¡He recibido tu solicitud!',
             html: `
-            <h1>Hola ${user.name}+${user.lastname},</h1>
+            <h1>Hola ${user.name} ${user.lastname},</h1>
             <p>He recibido tu solicitud para empezar el proceso de declaración de renta, recuerde que la decha limite para presentar la declaración
-             NO debe ser despues de la fecha estipulada por el calendario para evmuchas gracias por confiar en mí.</p>
+             <strong>NO</strong> debe ser despues de la fecha estipulada por el calendario para evmuchas gracias por confiar en mí.</p>
             <h2>Atentamente Patricia Piñeros</h2>`,
         };
         try {

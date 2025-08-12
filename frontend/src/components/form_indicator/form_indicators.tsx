@@ -15,11 +15,45 @@ export const DecForm=()=>{
         comment:"",
     })
 
+    const[error, setError] = useState({})
+
+    const handleChange =(e: React.FormEvent)=>{
+        const {name, value} = e.target;
+        setFormData((prevData)=>({...prevData,[name]:value}))
+    }
+
+
     //Submit button function
 
     const handleSubmit = async (e: React.FormEvent)=>{
         e.preventDefault();
         try{
+
+
+            //Validación de los campos
+            if(!formData.name){
+                newErrors.name="Dato obligatorio"
+            }
+            if(!formData.lastname){
+                newErrors.lastname="Dato obligatorio"
+            }
+            if(!formData.phone){
+                newErrors.phone="Dato obligatorio"
+            }
+            if(!formData.email){
+                newErrors.phone="Dato necesario"
+            }
+            if(!formData._id){
+                newErrors._id="Dato obligatorio"
+            }
+
+            //Verifica si hay casilla vacia
+            if(Object.keys(newErros).lenght>0){
+                setErrors(newErrors);
+                return
+            }
+            setError({})
+
             await createUser(formData);
             alert('¡Formularió enviado con éxito!')
             setFormData({
@@ -36,6 +70,7 @@ export const DecForm=()=>{
         }
     }
 
+    
 
     return (
        <form className="space-y-3" onSubmit={handleSubmit}>
@@ -94,6 +129,17 @@ export const DecForm=()=>{
                     placeholder="1234567890"
                     value={formData._id}
                     onChange={(e)=>{setFormData({...formData, _id:e.target.value})}}
+                />
+            </div>
+            {/*Comentarios*/}
+            <div className="flex flex-col">
+                <h2>Comentarios (Opcional)</h2>
+                <input
+                    type="string"
+                    placeholder="Comente aqui"
+                    className="bg-blue-600 w-85 l-400"
+                    value={formData.comment}
+                    onChange={(e)=>{setFormData({...formData, comment:e.target.value})}}
                 />
             </div>
             <br/>
