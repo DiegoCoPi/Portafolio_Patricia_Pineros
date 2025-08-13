@@ -2,8 +2,7 @@ import Image from "next/image"
 import {Footer} from "../components/footer/footer"
 import {UserForm} from "../app/form/page"
 
-
-export default function Home(){
+const Home=()=>{
   return (
     <div className="min-h-screen flex flex-col">
       <div style={{color:'rgba(250, 5, 5, 0.93)'}} className="text-center md:text-center text-6xl my-8" >
@@ -45,6 +44,7 @@ export default function Home(){
     </div>
   )
 }
+export default Home
 
 
 /*export default function Home() {
