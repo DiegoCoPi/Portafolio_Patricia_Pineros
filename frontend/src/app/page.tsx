@@ -1,4 +1,4 @@
-import Image from "next/image"
+//import Image from "next/image"
 import {Footer} from "../components/footer/footer"
 import {UserForm} from "../app/form/page"
 
@@ -6,35 +6,36 @@ import {UserForm} from "../app/form/page"
 export default function Home(){
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="text-center md:text-center text-6xl my-8" >
-        <h1>Bienvenidos a mi pagina web</h1>
+      <div style={{color:'rgba(250, 5, 5, 0.93)'}} className="text-center md:text-center text-6xl my-8" >
+        <h1>Te Ayudamos con tu Declaración de Renta</h1>
       </div>
       <br/>
-      <div style={{backgroundColor: 'rgba(159, 152, 152, 0.7)'}} className="text-2xl mx-12 text-white rounded-lg border-2 border-black py-4 px-4 mx-12">
+      <div style={{backgroundColor: 'rgba(32, 30, 30, 0.61)'}} className="text-2xl mx-12 text-white rounded-lg border-2 border-black py-4 px-4 mx-12">
           <p>
-            Hola, soy Sandra Patricia Piñeros, contadora pública. Cuento con amplia experiencia en temas tributarios y quiero ayudarte a que tu declaración 
-            de renta como persona natural sea fácil y sin complicaciones.Aquí encontrarás información útil y el formulario que puedes diligenciar para iniciar 
-            tu proceso. ¡Será un gusto acompañarte! 
+            Mi nombre es Sandra patricia Piñeros soy contadora pública con conocimiento y experiencia en preparación de impuestos para personas naturales en el cual cree este espacio
+            para poner a su disposición y poderle colaborar, ayudar y guiar con su declaración anual, ya que se encuantra en este espacio he habilitado un formulario en donde puede dejar
+            sus datos junto con un archivo descargable para consultar su fecha limite de declaración, requisitos y documentación que se debe enviar <strong>¡Bienvenido nuevamente a este espacio!.</strong>  
           </p>
       </div>
       <br/>
       <br/>
-      <div style={{backgroundColor: 'rgba(159, 152, 152, 0.7)'}} className="text-2xl mx-12 text-white rounded-lg border-2 border-black py-4 px-4 mx-12">
+      <div style={{backgroundColor: 'rgba(32, 30, 30, 0.61)'}} className="text-2xl mx-12 text-white rounded-lg border-2 border-black py-4 px-4 mx-12">
           <p>
-           Aqui encuentra el formulario en el cual yo le puedo colaborar con su declaración de renta, para esto deberá llenar sus datos personales como nombre(s)
-           y apellidos(s) completos, telefono en donde pueda estar contacto con usted al igual correo electrónico suyo y encaso de no tenerlo se recomienda crear uno
-           o si tiene alguien de plena confianza puede dar el correo electrónico de esa persona y finalmente el numero de cedula <strong>se debe digitar solo los 
-           los números, es decir en el formulario no poner ni punto, comas o dejar espacio entre digitos</strong>
+            Datos para tener en cuenta para el diligeciamiento del fomulario, es un formulario sencillo de diligenciar, consiste en diligenciar su(s) nombre(s) y apellido(s), con su número 
+            telefónico preferiblemente que tenga whatsapp, número de cédula ciudadana o documento autorizado como recomendación <strong>En ambas casillas NO debe insertar ni simbolos ni dejar
+            espacios</strong>,y finalmente proporcionar un correo electrónico se utilizara como medio de envio de documentos y hacerme saber de que llego su solicitud,<strong>preferible tener 
+            correo personal y en caso de no tenerlo puede proporcinar uno de una persona de su plena confianza o crear uno nuevo. </strong> Sin más dejo al final de la pagina mi número de contacto
+            por si tene alguna inquietud.
           </p>
           <br/>
-          <div className="flex space-x-80">
+          <div className="flex space-x-40">
             <div className="flex flex-col items-center gap-6 ml-20">
-              <a href="/pdf/Calendario_Impuesto.pdf" download="Calendario_Impuesto.pdf">
-                <Image src="/PDF.svg" alt="PDF" height={100} width={100}/>
+              <a href="/Calendario_Impuesto.pdf" download="Calendario_Impuesto.pdf">
+                <img src="/PDF.png" alt="PDF" height={100} width={100}/>
                 <h2>Calendario_Impuesto.pdf</h2>
               </a>
             </div>
-            <div className="mr-20">
+            <div className="mr-200">
               <UserForm/>
             </div>  
           </div>  

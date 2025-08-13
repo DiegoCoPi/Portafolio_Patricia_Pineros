@@ -74,7 +74,6 @@ export class UserService {
                 <li><b>Teléfono:</b> ${user.phone}</li>
                 <li><b>Correo:</b> ${user.email}</li>
                 <li><b>Número de documento:</b> ${user._id}</li>
-                <li><b>Comentario:</b> ${user.comment}</li>
                 </ul>`,
         };
         try {

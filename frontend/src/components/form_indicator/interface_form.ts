@@ -5,5 +5,4 @@ export interface formInterface{
    lastname:string;
    phone:string;
    email:string;
-   comment:string;
 }
