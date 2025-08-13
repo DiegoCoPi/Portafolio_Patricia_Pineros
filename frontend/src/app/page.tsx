@@ -1,4 +1,4 @@
-//import Image from "next/image"
+import Image from "next/image"
 import {Footer} from "../components/footer/footer"
 import {UserForm} from "../app/form/page"
 
@@ -31,7 +31,7 @@ export default function Home(){
           <div className="flex space-x-40">
             <div className="flex flex-col items-center gap-6 ml-20">
               <a href="/Calendario_Impuesto.pdf" download="Calendario_Impuesto.pdf">
-                <img src="/PDF.png" alt="PDF" height={100} width={100}/>
+                <Image src="/PDF.png" alt="PDF" height={100} width={100}/>
                 <h2>Calendario_Impuesto.pdf</h2>
               </a>
             </div>
