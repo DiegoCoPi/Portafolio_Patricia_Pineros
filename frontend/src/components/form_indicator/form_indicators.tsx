@@ -12,12 +12,11 @@ export const DecForm=()=>{
         lastname:"",
         phone:"",
         email:"",
-        comment:"",
     })
 
-    const[error, setError] = useState({})
+    const[error, setError] = useState<Record<string, string>>({})
 
-    const handleChange =(e: React.FormEvent)=>{
+    const handleChange =(e: React.ChangeEvent<HTMLInputElement>)=>{
         const {name, value} = e.target;
         setFormData((prevData)=>({...prevData,[name]:value}))
     }
@@ -27,9 +26,8 @@ export const DecForm=()=>{
 
     const handleSubmit = async (e: React.FormEvent)=>{
         e.preventDefault();
-        try{
-
-
+        
+            const newErrors:Record<string,string>={}
             //Validación de los campos
             if(!formData.name){
                 newErrors.name="Dato obligatorio"
@@ -41,19 +39,19 @@ export const DecForm=()=>{
                 newErrors.phone="Dato obligatorio"
             }
             if(!formData.email){
-                newErrors.phone="Dato necesario"
+                newErrors.email="Dato necesario"
             }
             if(!formData._id){
                 newErrors._id="Dato obligatorio"
             }
 
             //Verifica si hay casilla vacia
-            if(Object.keys(newErros).lenght>0){
-                setErrors(newErrors);
+            if(Object.keys(newErrors).length>0){
+                setError(newErrors);
                 return
             }
-            setError({})
-
+            setError({});
+        try{
             await createUser(formData);
             alert('¡Formularió enviado con éxito!')
             setFormData({
@@ -62,11 +60,10 @@ export const DecForm=()=>{
                 lastname:"",
                 phone:"",
                 email:"",
-                comment:"",
             })
         }
-        catch(error){
-            alert('Hubo un error al enviar el formulario.'+error)
+        catch{
+            alert('Diligencie todos los campos requeridos')
         }
     }
 
@@ -77,70 +74,81 @@ export const DecForm=()=>{
             {/* Casilla de nombre(s)*/}
             <div className="flex items-left gap-6">
                 <h2>Nombre(s)</h2>
-                <input
-                    type="text"
-                    className="bg-blue-600 w-50"
-                    placeholder="Ingrese nombre(s)"
-                    value={formData.name}
-                    onChange={(e)=>{setFormData({...formData, name:e.target.value})}}
-                />
+                <div>
+                    <input
+                        type="text"
+                        name="name"
+                        className={`bg-blue-600 w-50 ${error.name?'input-error':''}`}
+                        placeholder="Ingrese nombre(s)"
+                        value={formData.name}
+                        onChange={handleChange}
+                    />
+                    {error.name && <p className="error-message text-red-500">{error.name}</p>}
+                </div>
             </div>
-
+            <br/>
             {/* Casilla de apellido(s)*/}
             <div className="flex items-left gap-6">
                 <h2>Apellido(s)</h2>
-                <input
+                <div>
+                    <input
                     type="text"
-                    className="bg-blue-600 w-50"
+                    name="lastname"
+                    className={`bg-blue-600 w-50 ${error.lastname?'input-error':''}`}
                     placeholder="Ingrese apellido(s)"
                     value={formData.lastname}
-                    onChange={(e)=>{setFormData({...formData, lastname:e.target.value})}}
+                    onChange={handleChange}
                     />
+                    {error.lastname && <p className="error-message text-red-500">{error.lastname}</p>}
+                </div>
             </div>
+            <br/>
             {/* Casilla de telefono*/}
             <div className="flex item-left gap-11.5">
                 <h2>Telefóno</h2>
-                <input
-                type="number"
-                className="bg-blue-600 w-50"
-                placeholder="numero telefonico"
-                value={formData.phone}
-                onChange={(e)=>setFormData({...formData, phone:e.target.value})}
-                />
+                <div>
+                    <input
+                    type="number"
+                    name="phone"
+                    className={`bg-blue-600 w-50" ${error.phone? 'input-error':""}`}
+                    placeholder="numero telefonico"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    />
+                    {error.phone && <p className="error-message text-red-500">{error.phone}</p>}
+                </div>
             </div>
+            <br/>
             {/* Casilla de correo electrónico*/}
             <div className="flex item-left gap-10.5">
                 <h2>Correo E</h2>
-                <input
-                type="string"
-                className="bg-blue-600 w-50"
-                placeholder="tu_mail@mail.com"
-                value={formData.email}
-                onChange={(e)=>setFormData({...formData, email:e.target.value})}
-                />
+                <div>
+                    <input
+                    type="string"
+                    name="email"
+                    className={`bg-blue-600 w-50 ${error.email? 'input-error':""}`}
+                    placeholder="tu_mail@mail.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                    />
+                    {error.email && <p className="error-message text-red-500">{error.email}</p>}
+                </div>
             </div>
-                
+            <br/>    
             {/* Casilla de numero de documento*/}
             <div className="flex items-left gap-14">
                 <h2>N° C.C.</h2>
-                <input
-                    type="number"
-                    className="bg-blue-600 w-50"
-                    placeholder="1234567890"
-                    value={formData._id}
-                    onChange={(e)=>{setFormData({...formData, _id:e.target.value})}}
-                />
-            </div>
-            {/*Comentarios*/}
-            <div className="flex flex-col">
-                <h2>Comentarios (Opcional)</h2>
-                <input
-                    type="string"
-                    placeholder="Comente aqui"
-                    className="bg-blue-600 w-85 l-400"
-                    value={formData.comment}
-                    onChange={(e)=>{setFormData({...formData, comment:e.target.value})}}
-                />
+                <div>
+                    <input
+                        type="number"
+                        name="_id"
+                        className={`bg-blue-600 w-50 ${error._id? 'input-error':""}`}
+                        placeholder="1234567890"
+                        value={formData._id}
+                        onChange={handleChange}
+                    />
+                    {error._id && <p className="error-message text-red-500">{error._id}</p>}
+                </div>
             </div>
             <br/>
             <div className="flex items-center justify-center">
