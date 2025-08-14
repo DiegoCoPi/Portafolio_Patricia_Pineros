@@ -1,9 +1,8 @@
-//import Image from "next/image"
+import Image from "next/image"
 import {Footer} from "../components/footer/footer"
-import {UserForm} from "../app/form/page"
+import UserForm from "../components/form_indicator/form_indicators"
 
-
-export default function Home(){
+const Home=()=>{
   return (
     <div className="min-h-screen flex flex-col">
       <div style={{color:'rgba(250, 5, 5, 0.93)'}} className="text-center md:text-center text-6xl my-8" >
@@ -31,7 +30,7 @@ export default function Home(){
           <div className="flex space-x-40">
             <div className="flex flex-col items-center gap-6 ml-20">
               <a href="/Calendario_Impuesto.pdf" download="Calendario_Impuesto.pdf">
-                <img src="/PDF.png" alt="PDF" height={100} width={100}/>
+                <Image src="/PDF.png" alt="PDF" height={100} width={100}/>
                 <h2>Calendario_Impuesto.pdf</h2>
               </a>
             </div>
@@ -45,6 +44,7 @@ export default function Home(){
     </div>
   )
 }
+export default Home
 
 
 /*export default function Home() {

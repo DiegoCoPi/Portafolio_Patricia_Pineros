@@ -1,10 +1,10 @@
 "use client";
 import {useState}  from "react"
-import { formInterface } from "./interface_form"
+import {formInterface} from "./interface_form"
 import Send_Button from "../buttons/send_buton"
 import {createUser} from "../api/user_api_service"
 
-export const DecForm=()=>{
+const DecForm=()=>{
     
     const[formData, setFormData]=useState<formInterface>({
         _id:"",
@@ -157,3 +157,4 @@ export const DecForm=()=>{
        </form>
     )
 }
+export default DecForm
