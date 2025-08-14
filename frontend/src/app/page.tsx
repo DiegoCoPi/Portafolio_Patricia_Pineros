@@ -1,6 +1,6 @@
 import Image from "next/image"
 import {Footer} from "../components/footer/footer"
-import {UserForm} from "../app/form/page"
+import UserForm from "../components/form_indicator/form_indicators"
 
 const Home=()=>{
   return (
