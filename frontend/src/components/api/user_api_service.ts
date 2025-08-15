@@ -1,7 +1,7 @@
 import axios from 'axios'
 import {formInterface} from "../form_indicator/interface_form"
 
-const api_url = 'http://localhost:3000/user'
+const api_url = 'https://portafolio-patricia-pineros.onrender.com/user'
 
 export const createUser= async(userData:formInterface)=>{
     
