@@ -29,21 +29,15 @@ const DecForm=()=>{
         
             const newErrors:Record<string,string>={}
             //Validación de los campos
-            if(!formData.name){
-                newErrors.name="Dato obligatorio"
-            }
-            if(!formData.lastname){
-                newErrors.lastname="Dato obligatorio"
-            }
-            if(!formData.phone){
-                newErrors.phone="Dato obligatorio"
-            }
-            if(!formData.email){
-                newErrors.email="Dato necesario"
-            }
-            if(!formData._id){
-                newErrors._id="Dato obligatorio"
-            }
+            if(!formData.name){newErrors.name="Dato obligatorio"}
+
+            if(!formData.lastname){newErrors.lastname="Dato obligatorio"}
+
+            if(!formData.phone){newErrors.phone="Dato obligatorio"}
+
+            if(!formData.email){newErrors.email="Dato necesario"}
+
+            if(!formData._id){newErrors._id="Dato obligatorio"}
 
             //Verifica si hay casilla vacia
             if(Object.keys(newErrors).length>0){
