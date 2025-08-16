@@ -1,154 +1,95 @@
 "use client";
-import {useState}  from "react"
-import {formInterface} from "./interface_form"
-import Send_Button from "../buttons/send_buton"
-import {createUser} from "../api/user_api_service"
+import { useState } from "react";
+import { formInterface } from "./interface_form";
+import Send_Button from "../buttons/send_buton";
+import { createUser } from "../api/user_api_service";
 
-const DecForm=()=>{
-    
-    const[formData, setFormData]=useState<formInterface>({
-        _id:"",
+const DecForm = () => {
+  const [formData, setFormData] = useState<formInterface>({
+    _id: "",
+    name: "",
+    lastname: "",
+    phone: "",
+    email: "",
+  });
+
+  const [error, setError] = useState<Record<string, string>>({});
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const newErrors: Record<string, string> = {};
+
+    if (!formData.name) newErrors.name = "Dato obligatorio";
+    if (!formData.lastname) newErrors.lastname = "Dato obligatorio";
+    if (!formData.phone) newErrors.phone = "Dato obligatorio";
+    if (!formData.email) newErrors.email = "Dato necesario";
+    if (!formData._id) newErrors._id = "Dato obligatorio";
+
+    if (Object.keys(newErrors).length > 0) {
+      setError(newErrors);
+      return;
+    }
+
+    setError({});
+
+    try {
+      await createUser(formData);
+      alert("¡Formulario enviado con éxito!");
+      setFormData({
+        _id: "",
         name: "",
-        lastname:"",
-        phone:"",
-        email:"",
-    })
-
-    const[error, setError] = useState<Record<string, string>>({})
-
-    const handleChange =(e: React.ChangeEvent<HTMLInputElement>)=>{
-        const {name, value} = e.target;
-        setFormData((prevData)=>({...prevData,[name]:value}))
+        lastname: "",
+        phone: "",
+        email: "",
+      });
+    } catch {
+      alert("Error al enviar el formulario. Verifique los datos.");
     }
+  };
 
+  const inputClass =
+    "mr-32 py-2 rounded-lg border-2 bg-gray-400/70 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-blue-300 transition-all";
 
-    //Submit button function
+  // Definición de campos
+  const fields = [
+    { label: "Nombre(s)", name: "name", type: "text", placeholder: "Ingrese nombre(s)" },
+    { label: "Apellido(s)", name: "lastname", type: "text", placeholder: "Ingrese apellido(s)" },
+    { label: "Teléfono", name: "phone", type: "text", placeholder: "Número telefóno" },
+    { label: "Correo E", name: "email", type: "email", placeholder: "tu_correo@mail.com" },
+    { label: "# C.C", name: "_id", type: "text", placeholder: "123456789" },
+  ];
 
-    const handleSubmit = async (e: React.FormEvent)=>{
-        e.preventDefault();
-        
-            const newErrors:Record<string,string>={}
-            //Validación de los campos
-            if(!formData.name){newErrors.name="Dato obligatorio"}
+  return (
+    <form className="space-y-4 p-6" onSubmit={handleSubmit}>
+      {fields.map((field) => (
+        <div key={field.name} className="flex flex-col md:flex-row items-start md:items-center gap-4">
+          <label className="w-40 font-semibold text-white">{field.label}</label>
+          <div className="flex-1">
+            <input
+              type={field.type}
+              name={field.name}
+              placeholder={field.placeholder}
+              value={formData[field.name as keyof formInterface]}
+              onChange={handleChange}
+              className={`${inputClass} ${error[field.name] ? "border-red-500" : "border-4 border-gray-300"}`}
+            />
+            {error[field.name] && (
+              <p className="text-red-500 text-sm mt-1">{error[field.name]}</p>
+            )}
+          </div>
+        </div>
+      ))}
+      <div className="flex justify-center mt-4">
+        <Send_Button />
+      </div>
+    </form>
+  );
+};
 
-            if(!formData.lastname){newErrors.lastname="Dato obligatorio"}
-
-            if(!formData.phone){newErrors.phone="Dato obligatorio"}
-
-            if(!formData.email){newErrors.email="Dato necesario"}
-
-            if(!formData._id){newErrors._id="Dato obligatorio"}
-
-            //Verifica si hay casilla vacia
-            if(Object.keys(newErrors).length>0){
-                setError(newErrors);
-                return
-            }
-            setError({});
-        try{
-            await createUser(formData);
-            alert('¡Formularió enviado con éxito!')
-            setFormData({
-                _id:"",
-                name: "",
-                lastname:"",
-                phone:"",
-                email:"",
-            })
-        }
-        catch{
-            alert('Diligencie todos los campos requeridos')
-        }
-    }
-
-    
-
-    return (
-       <form className="space-y-3" onSubmit={handleSubmit}>
-            {/* Casilla de nombre(s)*/}
-            <div className="flex items-left gap-6">
-                <h2>Nombre(s)</h2>
-                <div>
-                    <input
-                        type="text"
-                        name="name"
-                        className={`bg-blue-600 w-50 ${error.name?'input-error':''}`}
-                        placeholder="Ingrese nombre(s)"
-                        value={formData.name}
-                        onChange={handleChange}
-                    />
-                    {error.name && <p className="error-message text-red-500">{error.name}</p>}
-                </div>
-            </div>
-            <br/>
-            {/* Casilla de apellido(s)*/}
-            <div className="flex items-left gap-6">
-                <h2>Apellido(s)</h2>
-                <div>
-                    <input
-                    type="text"
-                    name="lastname"
-                    className={`bg-blue-600 w-50 ${error.lastname?'input-error':''}`}
-                    placeholder="Ingrese apellido(s)"
-                    value={formData.lastname}
-                    onChange={handleChange}
-                    />
-                    {error.lastname && <p className="error-message text-red-500">{error.lastname}</p>}
-                </div>
-            </div>
-            <br/>
-            {/* Casilla de telefono*/}
-            <div className="flex item-left gap-11.5">
-                <h2>Telefóno</h2>
-                <div>
-                    <input
-                    type="number"
-                    name="phone"
-                    className={`bg-blue-600 w-50" ${error.phone? 'input-error':""}`}
-                    placeholder="numero telefonico"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    />
-                    {error.phone && <p className="error-message text-red-500">{error.phone}</p>}
-                </div>
-            </div>
-            <br/>
-            {/* Casilla de correo electrónico*/}
-            <div className="flex item-left gap-10.5">
-                <h2>Correo E</h2>
-                <div>
-                    <input
-                    type="string"
-                    name="email"
-                    className={`bg-blue-600 w-50 ${error.email? 'input-error':""}`}
-                    placeholder="tu_mail@mail.com"
-                    value={formData.email}
-                    onChange={handleChange}
-                    />
-                    {error.email && <p className="error-message text-red-500">{error.email}</p>}
-                </div>
-            </div>
-            <br/>    
-            {/* Casilla de numero de documento*/}
-            <div className="flex items-left gap-14">
-                <h2>N° C.C.</h2>
-                <div>
-                    <input
-                        type="number"
-                        name="_id"
-                        className={`bg-blue-600 w-50 ${error._id? 'input-error':""}`}
-                        placeholder="1234567890"
-                        value={formData._id}
-                        onChange={handleChange}
-                    />
-                    {error._id && <p className="error-message text-red-500">{error._id}</p>}
-                </div>
-            </div>
-            <br/>
-            <div className="flex items-center justify-center">
-                <Send_Button/>
-            </div>
-       </form>
-    )
-}
-export default DecForm
+export default DecForm;

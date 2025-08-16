@@ -1,6 +1,6 @@
 import Image from "next/image"
 import {Footer} from "../components/footer/footer"
-import UserForm from "../components/form_indicator/form_indicators"
+import DecForm from "@/components/form_indicator/form_indicators"
 
 const Home=()=>{
   return (
@@ -18,7 +18,9 @@ const Home=()=>{
       </div>
       <br/>
       <br/>
-      <div style={{backgroundColor: 'rgba(32, 30, 30, 0.61)'}} className="text-2xl mx-12 text-white rounded-lg border-2 border-black py-4 px-4 mx-12">
+      <div style={{backgroundColor: 'rgba(32, 30, 30, 0.61)'}} className="text-2xl text-white mx-12 rounded-lg border-2 border-black py-4 px-4 mx-12">
+          <h2 className="text-center text-6xl">Formulario</h2>
+          <br/>
           <p>
             Datos para tener en cuenta para el diligeciamiento del fomulario, es un formulario sencillo de diligenciar, consiste en diligenciar su(s) nombre(s) y apellido(s), con su número 
             telefónico preferiblemente que tenga whatsapp, número de cédula ciudadana o documento autorizado como recomendación <strong>En ambas casillas NO debe insertar ni simbolos ni dejar
@@ -34,8 +36,8 @@ const Home=()=>{
                 <h2>Calendario_Impuesto.pdf</h2>
               </a>
             </div>
-            <div className="mr-200">
-              <UserForm/>
+            <div className="border-blue-600 border-4 rounded-lg  bg-black/70 mr-200">
+              <DecForm/>
             </div>  
           </div>  
       </div>      
